@@ -1,0 +1,2 @@
+pub const GAME_CODES_ANCHOR: &str = "GAME_CODES_ANCHOR";
+pub const PLAYER_LINK_TAG: &str = "PLAYER_LINK_TAG";
