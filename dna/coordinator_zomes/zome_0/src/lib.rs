@@ -2,6 +2,7 @@ use hdk::prelude::*;
 use zome_0_integrity::PlayerProfile;
 
 mod game_code;
+mod game_session;
 mod player_profile;
 
 use crate::player_profile::JoinGameInfo;
@@ -19,4 +20,14 @@ pub fn join_game_with_code(input: JoinGameInfo) -> ExternResult<EntryHash> {
 #[hdk_extern]
 pub fn get_players_for_game_code(short_unique_code: String) -> ExternResult<Vec<PlayerProfile>> {
     player_profile::get_player_profiles_for_game_code(short_unique_code)
+}
+
+#[hdk_extern]
+pub fn start_game_session_with_code(game_code: String) -> ExternResult<EntryHash> {
+    game_session::start_game_session_with_code(game_code)
+}
+
+#[hdk_extern]
+pub fn get_my_owned_sessions(_: ()) -> ExternResult<Vec<(EntryHash, GameSession)>> {
+    game_session::get_my_own_sessions_via_source_query()
 }

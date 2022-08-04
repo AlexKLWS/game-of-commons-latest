@@ -1,2 +1,5 @@
 pub const GAME_CODES_ANCHOR: &str = "GAME_CODES_ANCHOR";
+
 pub const PLAYER_LINK_TAG: &str = "PLAYER_LINK_TAG";
+pub const OWNER_SESSION_TAG: &str = "OWNER_SESSION_TAG";
+pub const GAME_CODE_TO_SESSION_TAG: &str = "GAME_CODE_TO_SESSION_TAG";

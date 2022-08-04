@@ -14,6 +14,11 @@ pub struct JoinGameInfo {
 
 pub fn create_and_hash_entry_player_profile(nickname: String) -> ExternResult<EntryHash> {
     let agent = agent_info()?;
+    debug!(
+        "create_and_hash_entry_player_profile | nickname: {}, agent {:?}",
+        nickname,
+        agent.clone()
+    );
     let player_profile = PlayerProfile {
         player_id: agent.agent_initial_pubkey,
         nickname,
