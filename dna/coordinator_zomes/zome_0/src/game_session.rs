@@ -54,11 +54,12 @@ pub fn create_game_session(
 }
 
 pub fn get_my_own_sessions_via_source_query() -> ExternResult<Vec<(EntryHash, GameSession)>> {
+    let def_index = ScopedEntryDefIndex::try_from(UnitEntryTypes::GameSession)?;
     let filter = ChainQueryFilter::new()
         .include_entries(true)
         .entry_type(EntryType::App(AppEntryType {
-            id: ScopedEntryDefIndex::try_from(UnitEntryTypes::GameSession)?.zome_type,
-            zome_id: zome_info()?.id,
+            id: def_index.zome_type,
+            zome_id: def_index.zome_id,
             visibility: EntryVisibility::Public,
         }));
 
