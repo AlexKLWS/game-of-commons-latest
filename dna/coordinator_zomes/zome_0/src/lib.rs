@@ -1,5 +1,5 @@
 use hdk::prelude::*;
-use zome_0_integrity::PlayerProfile;
+use zome_0_integrity::{GameSession, PlayerProfile};
 
 mod game_code;
 mod game_session;
@@ -30,4 +30,9 @@ pub fn start_game_session_with_code(game_code: String) -> ExternResult<EntryHash
 #[hdk_extern]
 pub fn get_my_owned_sessions(_: ()) -> ExternResult<Vec<(EntryHash, GameSession)>> {
     game_session::get_my_own_sessions_via_source_query()
+}
+
+#[hdk_extern]
+pub fn get_all_game_codes(_: ()) -> ExternResult<Vec<String>> {
+    game_code::get_all_game_codes()
 }
